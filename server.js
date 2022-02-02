@@ -72,7 +72,7 @@ const enviarNotificacion = (req, res) => {
                     console.log('USUARIO NO TIENE PERMISOS O LAS KEYS CORRECTAS');
                 })
                 
-                res.send({ data: 'Se envio subscribete!!' })
+                handlerResponse(res, 'Se envio la notificacion', 200)
         });
     })
 
