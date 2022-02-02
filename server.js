@@ -53,7 +53,7 @@ const httpServer = app.listen(process.env.PORT || 5000, () => {
         if(err) throw err;
     });
     console.log("salimos del save!!!");
-    handlerResponse(res, 'Save success')
+    handlerResponse('Save success')
  };
 // const sendPush = (req, res) => {...};
 
@@ -87,15 +87,15 @@ const enviarNotificacion = (req, res) => {
             let tokenRaw = fs.readFileSync(`${directoryPath}/${file}`);
             let tokenParse = JSON.parse(tokenRaw);
 
-            console.log(tokenParse)
+            console.log("FILEEEEEEEEEEEE" ,file);
 
             webpush.sendNotification(
                 tokenParse,
                 JSON.stringify(payload))
                 .then(res => {
-                    console.log('Enviado !!',res);
+                    console.log('Enviado !!');
                 }).catch(err => {
-                    console.log('USUARIO NO TIENE PERMISOS O LAS KEYS CORRECTAS',err);
+                    console.log('USUARIO NO TIENE PERMISOS O LAS KEYS CORRECTAS');
                 })
                 
                 
