@@ -47,6 +47,8 @@ const httpServer = app.listen(process.env.PORT || 5000, () => {
     let tokenBrowser = req.body.token;
     let data = JSON.stringify(tokenBrowser, null, 2);
 
+    console.log("DATA:",data)
+
     fs.writeFile(`./tokens/token-${name}.json`,data,(err) =>{
         if(err) throw err;
     });
@@ -82,8 +84,10 @@ const enviarNotificacion = (req, res) => {
         }
 
         files.forEach((file)=> {
-            const tokenRaw = fs.readFileSync(`${directoryPath}/${file}`);
-            const tokenParse = JSON.parse(tokenRaw);
+            let tokenRaw = fs.readFileSync(`${directoryPath}/${file}`);
+            let tokenParse = JSON.parse(tokenRaw);
+
+            console.log(tokenParse)
 
             webpush.sendNotification(
                 tokenParse,
