@@ -1,12 +1,13 @@
 const webpush = require('web-push');
 const express = require('express')
 const cors = require('cors')
-app.use(cors({
-    origin:"*"
-}))
+
 const bodyParser = require('body-parser');
 
 const app = express();
+app.use(cors({
+    origin:"*"
+}))
 const fs = require('fs');
 const path = require('path');
 
