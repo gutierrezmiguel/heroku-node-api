@@ -22,11 +22,11 @@ const vapidKeys = {
     "privateKey": "gke_pV8lkFxp-Axpb049pEmZRq3ZZV9hmwT4Ycj3b04"
 }
 
-webpush.setVapidDetails(
-    'mailto:example@yourdomain.org',
-    vapidKeys.publicKey,
-    vapidKeys.privateKey
-);
+const httpServer = app.listen(process.env.PORT || 5000, () => {
+    console.log("HTTP Server running at " + httpServer.address().port);
+});
+
+
 
  const handlerResponse = (res, data, code = 200) =>{
      res.status(code).send({data})
@@ -41,12 +41,12 @@ webpush.setVapidDetails(
 
     fs.writeFile(`./tokens/token-${name}.json`,data,(err) =>{
         if(err) throw err;
-        handlerResponse(res, 'Save success')
     });
+    handlerResponse(res, 'Save success')
  };
 // const sendPush = (req, res) => {...};
 
- app.route('/save').post(savePush);
+ 
 // app.route('/send').post(savePush);
 
 
@@ -76,13 +76,13 @@ const enviarNotificacion = (req, res) => {
         });
     })
 
-    const pushSubscription = {
-        endpoint: 'https://fcm.googleapis.com/fcm/send/fYuq9ztZQKQ:APA91bHjA6MmSoA-0hRNKsCFuu8IaJQIUqEp846QZc_NO_ND94qe234Z2-MK0LPZgMpdIYwOGJfcwwpMGEbwq-bXK8H53pyc6AFssnVZUel5yqxAdevDYpMN6ygEFcx-vmtAFgl3bCpd',
-        keys: {
-            auth: 'ZBMk4uFNGljsYtnt2kn3gw',
-            p256dh: 'BMIG6m0ExRQ56jO95b4r6lC-_m6JL8ad3nUXtnlSjvqcdem0DhNaNZaeBXMBGMpYjRmhl3Pi05giHq_9HpM4rh4'
-        }
-    };
+    // const pushSubscription = {
+    //     endpoint: 'https://fcm.googleapis.com/fcm/send/fYuq9ztZQKQ:APA91bHjA6MmSoA-0hRNKsCFuu8IaJQIUqEp846QZc_NO_ND94qe234Z2-MK0LPZgMpdIYwOGJfcwwpMGEbwq-bXK8H53pyc6AFssnVZUel5yqxAdevDYpMN6ygEFcx-vmtAFgl3bCpd',
+    //     keys: {
+    //         auth: 'ZBMk4uFNGljsYtnt2kn3gw',
+    //         p256dh: 'BMIG6m0ExRQ56jO95b4r6lC-_m6JL8ad3nUXtnlSjvqcdem0DhNaNZaeBXMBGMpYjRmhl3Pi05giHq_9HpM4rh4'
+    //     }
+    // };
 
     const payload = {
         "notification": {
@@ -110,10 +110,15 @@ const enviarNotificacion = (req, res) => {
 
 }
 
+app.route('/save').post(savePush);
+
 app.route('/api/enviar').post(enviarNotificacion);
 
 
-const httpServer = app.listen(process.env.PORT || 5000, () => {
-    console.log("HTTP Server running at http://localhost:" + httpServer.address().port);
-});
 
+
+webpush.setVapidDetails(
+    'mailto:example@yourdomain.org',
+    vapidKeys.publicKey,
+    vapidKeys.privateKey
+);
