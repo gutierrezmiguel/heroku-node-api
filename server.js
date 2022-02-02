@@ -37,7 +37,7 @@ const httpServer = app.listen(process.env.PORT || 5000, () => {
 
 
  const handlerResponse = (res, data, code = 200) =>{
-     res.writeHead(code).send({data})
+     res.status(code).send({data})
  }
 
  const savePush = (req, res) => {
@@ -53,7 +53,7 @@ const httpServer = app.listen(process.env.PORT || 5000, () => {
         if(err) throw err;
     });
     console.log("salimos del save!!!");
-    handlerResponse('Save success')
+    handlerResponse(res,'Save success')
  };
 // const sendPush = (req, res) => {...};
 
