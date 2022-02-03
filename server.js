@@ -66,14 +66,11 @@ const enviarNotificacion = (req, res) => {
     
     const payload = {
     "notification": {
-        "title": "Folla como un toro",
-        "body": "Este hombre folla como un toro, quieres saber como?",
+        "title": "Donde Estudiar",
+        "body": "Ve y Visita nuestro nuevo OVA",
         "vibrate": [100, 50, 100],
-        "image": "https://fotonotificacion.s3.us-east-1.amazonaws.com/miguel.jpg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBwaCXVzLWVhc3QtMSJIMEYCIQCziOGtr%2FfPe7n4xHt%2FpAqiJutdCDdbuz7wXECrlUsHsQIhANSuTq98d12cMwlXJEdm6DgRygaSNru2hixvhO%2Bzqbo8KuQCCFUQAhoMMjcwMTcyMDE2NDc5IgwXnkKgIdsSYSEMWNcqwQJk6modQkiCSsK9A90cDBMAC6Sju468vUIokflnUYlntLbHdPu%2Fsq0ngirZVkY3OmuZNB89jxtAANx1TqSKvCHSnXupLoUj0%2FSZBdOzuD%2F8rHEZrMSNaCCXHXS0E1csjysISF7Erju%2FNi7fOQNaDj7tH0BFeMWA3xjssRNowlp1HZUOkQi5Rtm7aOPWZp%2Bu%2FSodiAa8qu7y7EQg3%2BP9wj5%2FATeoytCEcTns08yq4mNZ7YJ2EEf8B1Tl9U8%2FTc6pqIcZoYcI%2Fcjzb11kJz%2FDVLheXaVYhzmJj%2B7mMlZz%2FaiZ4jyu2NVfBCDcfMLYQv1qnSrIRc1WN1yu7WCwhVjlL2lOCd6YnrqngH5CHLvk6pXVc31cGbu3WTuA7p4oobcgzgBk4qi%2BqkdLkOUVzOvO60vmlYDPd%2BOye7aazy5fS7dltLMwgPznjwY6sgIUazIPWLbfGDFuMjpfW%2F7skHEoa0xe71yddDPkA%2FI5Wq3ADHFxkw%2FPVpJ1t0alCcrJdyRUIRFKadQs9pg2HnhButNvrWftMJf2586BTHByqIe7aA9lchh%2BPOTUJf8ROqYwnr6pmiAM9AGn%2FktLZvQ0BgiWvEObiaqQodV38uIdQFBTm5upU01WlQRyIFkjXpYL1c6hOx4ulXYmjb956l16h9s4EZh%2BIYKWmoeFqMJ%2F3Kuy5ikOOQQh6SLY3HiHdG4P%2FIoV7dAE30PaXgy8dQLRgXfoNwKyrkqmI5LaD5c2bu%2BCdpSQ3DNTP1m8xPmB0nIZiWXWOwcHaECLMUEkqGPrFkwwlH9A%2FF2rhAevjNvrUtq%2BvzvlR%2FZnjtGVEuODntU1HPX%2FRKddaX4aDMuzDAL42X8%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220202T034701Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAT5Z4BZ5P5ZCFFMJT%2F20220202%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=87b6e5bc0cd2b775147b23a270ce219b2a9d6a8ec1a45758921a8fc8e16fc3ac",
-        "actions": [{
-            "action": "explore",
-            "title": "Go to the site"
-        }]
+        "image": "https://fotonotificacion.s3.us-east-1.amazonaws.com/logo.jpeg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDAaCXVzLWVhc3QtMSJHMEUCIHmGI8tO0%2FMFMfHBE4Fwk9P5rQHamw5TMjyjSJ0FwHKrAiEA8X%2BxRNs%2FZJ%2B8kXPulEfPzQPv8EklK6WBO57iOJjJVA4q5AIIaRACGgwyNzAxNzIwMTY0NzkiDHn%2BRN9Ar1%2FwwNol%2FyrBAg5CAFfN7OZp16bqGjuCIaT6zeLdLSYiQbyfNlbPOhQ8k%2Bb4GLox0GQmOY%2FQQ5jExa7bHYxV0G8XXmMfoGG%2FhwKdHZkOcqPDdxseCsAn2DBDJWZYYHyiDAP3fIxPtaD%2FC2tSTrRkpGCytoALGTqaQgzrzyfSs4zUX6cWZJx%2BLrxMUqimc%2BiQIm051E%2BVlN0C%2F9ALoLhJIAc33bZzPpisMb8xfg%2BleRjKItkY89mj1b2Vx5PvIOlUsVwLHiHIsKAmKXOhXYDCqVyrhTWLB2%2BTokhlWk4qdPfPXs%2FRr9EGKQVzMn3o0gzTQNX7ppJcpICk1mjsdFEfV%2F3WJ0rn4YQ%2B7tDOSs4UkcH6TejHHOqA2J2rYEaXaJV3j8FT9Dtf0KT29IqJu5BpQORFNEWi0lp94JMk%2B4F9JdAmp5CE7J47YvpLYTCfsuyPBjqzAm6myPEulgfU6F%2FdQrg%2Bpyb5YXqz%2BCOtGx9bEtCGZZWTMoe1TzMhdcfm0UAAJawr0MrjdJsc5F8zf5vZbRAkVseKdOyTMKSqcwRRrInuFoguMufAkRi8C038OV5ivBRUclP40hG2Wn%2BDVGjJzPCYvqBehHNameZCJqtZv95%2BhVhO96EQiYIunt9IWki1J9RnDyGLtQBGI6Bfsi%2B03Pi6agoL5fBB0yMei7iatxL3EI1pwUSJCYJ62PPnclpAf4tcJwvnlTLuRGSv%2Ba7tmdL9Dzv1WQc0YS3iYgJrwjwjBwNn%2BKwhZDQ8c9TOpr81WWjhQvT1P%2FR71HCf40ADt1og3Y3uRSrKTKZrWWx4WKzCmDrhPk6%2B8DvBJvnlOdi8Jt12YF%2BYadodjp6NBPuEJziMkfh1T5Q%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220203T000353Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAT5Z4BZ5P2OGIGKLL%2F20220203%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1817577f573f601ef0c04c144ae81b2bbd7c5cf5b1274f8d13731a85f7fce52c",
+        
     }
 }
 
